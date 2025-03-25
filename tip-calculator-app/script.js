@@ -23,8 +23,8 @@ tipButtons.forEach(button => {
         tipButtons.forEach(btn => btn.classList.remove("active"))
         e.target.classList.add("active")
         const tipValue = e.target.textContent
-        console.log(tipPercentage)
         tipPercentage = parseInt(tipValue);
+        console.log(tipPercentage)
        calculateTip()
 
 
@@ -61,8 +61,8 @@ customTipInput.addEventListener("input", () => {
     }
 
     if (amount > 0 && numberOfPeople > 0 && tipPercentage > 0) {
-        const tipAmount = (amount * (tipPercentage / 100));
-        const totalAmount = tipAmount * numberOfPeople;
+        const tipAmount = (amount * (tipPercentage / 100))/numberOfPeople;
+        const totalAmount = (amount * (tipPercentage/100) + amount)/numberOfPeople
 
         tipPerson.textContent = `$${tipAmount.toFixed(2)}`;
         totalTipPerson.textContent = `$${totalAmount.toFixed(2)}`;
