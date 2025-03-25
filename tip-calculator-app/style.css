@@ -68,6 +68,13 @@ section {
     outline: none;
     margin-bottom: 32px;
     font-weight: 700;
+ 
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 .standard-input::placeholder{
     margin-right: -10px;
