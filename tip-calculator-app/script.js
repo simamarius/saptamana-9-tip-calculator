@@ -24,6 +24,7 @@ tipButtons.forEach(button => {
         e.target.classList.add("active")
         const tipValue = e.target.textContent
         tipPercentage = parseInt(tipValue);
+        customTipInput.value = ""
         console.log(tipPercentage)
        calculateTip()
 
@@ -38,6 +39,9 @@ customTipInput.addEventListener("input", () => {
    console.log(tipPercentage)
       tipButtons.forEach(btn => btn.classList.remove("active"))
       calculateTip()
+    }
+    else{
+        tipPercentage = 0;
     }
   });
 
