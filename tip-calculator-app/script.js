@@ -14,7 +14,7 @@ const history = document.querySelector("tbody");
 const table = document.querySelector("table")
 const noData =  document.querySelector("#no-data")
 
-const calculate = document.getElementsByClassName("calculate")
+
 const errorMsg = document.querySelector(".error-msg")
 
 
