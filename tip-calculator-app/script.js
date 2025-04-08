@@ -78,10 +78,7 @@ customTipInput.addEventListener("input", () => {
 
       calculateTip()
     }
-    else{
-        tipPercentage = 0;
-
-    }
+   
   });
 
 
