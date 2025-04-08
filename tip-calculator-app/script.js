@@ -95,82 +95,65 @@ customTipInput.addEventListener("input", () => {
 
 
 
-  function calculateTip() {
+function calculateTip() {
     const amount = parseFloat(amountInput.value) || 0;
     const numberOfPeople = parseInt(peopleInput.value);
-
-
-   
-
+  
+    // Verificăm dacă numărul de persoane este valid
     if (!numberOfPeople || numberOfPeople <= 0) {
-       
-            errorMsg.style.display = "block"
-
-    if (!numberOfPeople || numberOfPeople <= 0) {
-       
-            errorMsg.style.display = "block"
-      
-
-        return;
+        errorMsg.style.display = "block";
+        tipPerson.textContent = "$0.00";
+        totalTipPerson.textContent = "$0.00";
+        resetButton.disabled = true;
+        noData.style.display = "block";
+        table.style.display = "none";
+        return; // Ieșim din funcție dacă numărul de persoane este invalid
     } else {
-       
-            errorMsg.style.display = "none"
-        
+        errorMsg.style.display = "none";
     }
 
+    // Verificăm dacă valoarea sumei și a procentajului de bacșiș sunt valide
     if (amount > 0 && numberOfPeople > 0 && tipPercentage > 0) {
-        const tipAmount = (amount * (tipPercentage / 100))/numberOfPeople;
-        const totalAmount = (amount * (tipPercentage/100) + amount)/numberOfPeople
+        const tipAmount = (amount * (tipPercentage / 100)) / numberOfPeople;
+        const totalAmount = (amount + (amount * (tipPercentage / 100))) / numberOfPeople;
 
-        const dataCalcul = new Date()
+        const dataCalcul = new Date();
         let formattedDate = new Intl.DateTimeFormat('ro-RO').format(dataCalcul); // Formatul "26.03.2025"
-// declaram variabila ce va contine array ul 
+
+        // Declaram variabila ce va conține array-ul
         let inputValori = [
             amount,  
             numberOfPeople,
             tipPercentage,
             formattedDate
-           ]
-
-        tipPerson.textContent = `$${tipAmount.toFixed(2)}`
-        totalTipPerson.textContent = `$${totalAmount.toFixed(2)}`
-
-        resetButton.disabled = false
-        resetButton.style.backgroundColor = "var(--green-400)"
-          noData.style.display = "none"
-
-// aici creem obiectul si il adaugam in array ul data
-        let newData ={
-            bill: inputValori[0],
-            people: inputValori[1],
-            tip: inputValori[2],
-           date: inputValori[3]
-        }
-        data.push(newData);
-        updateHistory();
-        updateStatistics();
-
-    } else {
-        tipPerson.textContent = "$0.00"
-        totalTipPerson.textContent = "$0.00"
-        resetButton.disabled = true
-       noData.style.display = "block"
-        table.style.display = "none"
-        
-
+        ];
 
         tipPerson.textContent = `$${tipAmount.toFixed(2)}`;
         totalTipPerson.textContent = `$${totalAmount.toFixed(2)}`;
-
+        
         resetButton.disabled = false;
-        resetButton.style.backgroundColor = "var(--green-400)"
+        resetButton.style.backgroundColor = "var(--green-400)";
+        noData.style.display = "none";
+
+        // Aici creăm obiectul și îl adăugăm în array-ul data
+        let newData = {
+            bill: inputValori[0],
+            people: inputValori[1],
+            tip: inputValori[2],
+            date: inputValori[3]
+        };
+        data.push(newData);
+        updateHistory();
+        updateStatistics();
     } else {
+        // În cazul în care datele nu sunt valide
         tipPerson.textContent = "$0.00";
         totalTipPerson.textContent = "$0.00";
         resetButton.disabled = true;
-
+        noData.style.display = "block";
     }
 }
+
 
 
 resetButton.addEventListener("click", () => {
