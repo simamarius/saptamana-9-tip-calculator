@@ -256,7 +256,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
 
-<<<<<<< HEAD
+
 
 #no-data{
    display: block;
@@ -265,8 +265,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
-=======
->>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
   
 @media (min-width: 376px) {
  
@@ -301,7 +299,7 @@ input[type="number"]::-webkit-outer-spin-button {
     .buttons-container{
     grid-template-columns: 1fr 1fr 1fr;
     }
-<<<<<<< HEAD
+
 
 
     .history-container{
@@ -322,13 +320,12 @@ input[type="number"]::-webkit-outer-spin-button {
         border: 1px solid var(--grey-900);
     }
 
-=======
->>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
+
 }
 
 
 
-<<<<<<< HEAD
+
 .statistics {
     display: flex;
     gap: 1rem;
@@ -349,7 +346,5 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #0D686D;
   }
   
-=======
 
->>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
 
