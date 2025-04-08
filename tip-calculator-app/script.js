@@ -5,6 +5,7 @@ const peopleInput = document.getElementById("number-of-people")
 const tipPerson = document.getElementById("tip-person")
 const totalTipPerson = document.getElementById("tip-total-person")
 const resetButton = document.getElementById("rest")
+<<<<<<< HEAD
 const calculate = document.querySelector(".calculate")
 const errorMsg = document.querySelector(".error-msg")
 
@@ -12,6 +13,11 @@ const errorMsg = document.querySelector(".error-msg")
 const history = document.querySelector("tbody"); 
 const table = document.querySelector("table")
 const noData =  document.querySelector("#no-data")
+=======
+const calculate = document.getElementsByClassName("calculate")
+const errorMsg = document.querySelector(".error-msg")
+
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
 
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault(); 
@@ -20,6 +26,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 
 let tipPercentage = 0;
+<<<<<<< HEAD
 let data = []
 
 tipButtons.forEach(button => {
@@ -33,14 +40,28 @@ tipButtons.forEach(button => {
         
         tipButtons.forEach(btn => btn.classList.remove("active"))
     
+=======
+
+tipButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+
+        tipButtons.forEach(btn => btn.classList.remove("active"))
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
         e.target.classList.add("active")
         const tipValue = e.target.textContent
         tipPercentage = parseInt(tipValue);
         customTipInput.value = ""
         console.log(tipPercentage)
+<<<<<<< HEAD
         
 
     })
+=======
+       calculateTip()
+
+
+    });
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
 });
 
 customTipInput.addEventListener("input", () => {
@@ -49,14 +70,22 @@ customTipInput.addEventListener("input", () => {
       tipPercentage = customTipValue
    console.log(tipPercentage)
       tipButtons.forEach(btn => btn.classList.remove("active"))
+<<<<<<< HEAD
     
     }
     else{
         tipPercentage = 0 ;
+=======
+      calculateTip()
+    }
+    else{
+        tipPercentage = 0;
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
     }
   });
 
 
+<<<<<<< HEAD
   amountInput.addEventListener("input", function() {
     if ( isNaN(amountInput.value) || parseFloat(amountInput.value) < 0  || amountInput.value === "") {
         calculate.disabled = true; // Dezactivează butonul dacă valoarea este invalidă
@@ -64,18 +93,28 @@ customTipInput.addEventListener("input", () => {
         calculate.disabled = false; // Activează butonul dacă valoarea este validă
     }
 });
+=======
+
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
 
 
   function calculateTip() {
     const amount = parseFloat(amountInput.value) || 0;
     const numberOfPeople = parseInt(peopleInput.value);
 
+<<<<<<< HEAD
    
 
     if (!numberOfPeople || numberOfPeople <= 0) {
        
             errorMsg.style.display = "block"
        
+=======
+    if (!numberOfPeople || numberOfPeople <= 0) {
+       
+            errorMsg.style.display = "block"
+      
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
         return;
     } else {
        
@@ -86,6 +125,7 @@ customTipInput.addEventListener("input", () => {
     if (amount > 0 && numberOfPeople > 0 && tipPercentage > 0) {
         const tipAmount = (amount * (tipPercentage / 100))/numberOfPeople;
         const totalAmount = (amount * (tipPercentage/100) + amount)/numberOfPeople
+<<<<<<< HEAD
         const dataCalcul = new Date()
         let formattedDate = new Intl.DateTimeFormat('ro-RO').format(dataCalcul); // Formatul "26.03.2025"
 // declaram variabila ce va contine array ul 
@@ -121,6 +161,18 @@ customTipInput.addEventListener("input", () => {
        noData.style.display = "block"
         table.style.display = "none"
         
+=======
+
+        tipPerson.textContent = `$${tipAmount.toFixed(2)}`;
+        totalTipPerson.textContent = `$${totalAmount.toFixed(2)}`;
+
+        resetButton.disabled = false;
+        resetButton.style.backgroundColor = "var(--green-400)"
+    } else {
+        tipPerson.textContent = "$0.00";
+        totalTipPerson.textContent = "$0.00";
+        resetButton.disabled = true;
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
     }
 }
 
@@ -145,6 +197,7 @@ resetButton.addEventListener("click", () => {
    
     resetButton.disabled = true;
     resetButton.style.backgroundColor = "#0D686D"
+<<<<<<< HEAD
 
 });
 
@@ -260,3 +313,6 @@ function updateStatistics() {
         </div>
     `;
 }
+=======
+});
+>>>>>>> 52c1f4e666b02c051d3169b4fc24b69c10e18365
