@@ -15,7 +15,7 @@ const table = document.querySelector("table")
 const noData =  document.querySelector("#no-data")
 
 
-const errorMsg = document.querySelector(".error-msg")
+
 
 
 
